@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="505.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagmentsystem.StaffDetailsController">
+   <children>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="62.0" prefWidth="182.0" text="BookGuru">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.029999999329447746" blue="0.029999999329447746" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color green="0.6666666865348816" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="194.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/staff.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="483.0" layoutY="434.0" mnemonicParsing="false" onAction="#backButton" prefHeight="46.0" prefWidth="88.0" style="-fx-background-radius: 30px;" text="Back" />
+      <TableView fx:id="table" layoutX="37.0" layoutY="91.0" prefHeight="330.0" prefWidth="635.0">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="205.59997940063477" text="Staff ID" />
+            <TableColumn fx:id="name" prefWidth="231.99998474121094" text="Staff Name" />
+            <TableColumn fx:id="phone" prefWidth="197.5999755859375" text="Phone Number" />
+         </columns>
+      </TableView>
+      <Button fx:id="fetchData" layoutX="174.0" layoutY="434.0" mnemonicParsing="false" onAction="#FetchData" prefHeight="46.0" prefWidth="88.0" style="-fx-background-radius: 30px;" text="Fetch Data" />
+   </children>
+</AnchorPane>
