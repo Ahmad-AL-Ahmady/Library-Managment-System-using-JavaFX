@@ -32,24 +32,34 @@ public class ViewBookDescriptionController {
         new SwitchView("Homepage.fxml",event);
     }
 
-    @FXML
-    public void viewDesc(ActionEvent event) throws IOException{ // View book description when the "View Description" button is pressed
+    @FXML   // View book description when the "View Description" button is pressed
+    public void viewDesc(ActionEvent event){
         Connection con = DBConnection.getConnection();
         if (con == null) {
             new ShowMessageDialog("Database Connection Error","There was an error connecting to the database.");
         }
+
+        // Create a BookDesc object and set its ID
         BookDesc bookDesc = new BookDesc();  // Create a BookDesc object and set its ID
         bookDesc.setId(Integer.parseInt(TF.getText()));
-        String checkquery ="SELECT book_description FROM book_desc WHERE book_id = "+bookDesc.getId()+";"; // SQL query to retrieve book description based on book ID
+
+        // SQL query to retrieve book description based on book ID
+        String checkquery ="SELECT book_description FROM book_desc WHERE book_id = "+bookDesc.getId()+";";
         try {
-            Statement stm = con.createStatement(); // Create a statement and execute the query
+
+            // Create a statement and execute the query
+            Statement stm = con.createStatement();
             ResultSet resultSet = stm.executeQuery(checkquery);
             while (resultSet.next()) {
-                flag=true; // Set the book description and update the label if there's a book with this id in this table
+
+                // Set the book description and update the label if there's a book with this id in this table
+                flag=true;
                 bookDesc.setDesc(resultSet.getString("book_description"));
                 descLabel.setText(bookDesc.getDesc());
             } if (flag == false) {
-                new ShowMessageDialog("Error","No such ID or this book has no description"); // Show an error message if no description is found
+
+                // Show an error message if no description is found
+                new ShowMessageDialog("Error","No such ID or this book has no description");
             }
         }catch (SQLException se){
             se.printStackTrace();
