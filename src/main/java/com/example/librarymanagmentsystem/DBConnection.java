@@ -9,7 +9,7 @@ public class DBConnection {
     private static final int PORT = 3306;
     private static final String DB_NAME = "library";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "root";
     private static Connection connection;         // A static variable to hold the database connection
     public static Connection getConnection() {    // Method to get a connection to the database
         try { // Attempt to establish a connection using JDBC
